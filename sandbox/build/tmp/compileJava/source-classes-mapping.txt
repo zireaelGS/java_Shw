@@ -1,2 +1,4 @@
-MyFirstProgram.java
- MyFirstProgram
+Point.java
+ Point
+MyFirstNoHelloProgram.java
+ MyFirstNoHelloProgram
