@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="PointTests" tests="4" skipped="0" failures="0" errors="0" timestamp="2020-10-27T15:19:26" hostname="DESKTOP-UCJUA3S" time="0.007">
+  <properties/>
+  <testcase name="testPoint1IsHighterThanPoint2" classname="PointTests" time="0.005"/>
+  <testcase name="testTheCoincidenceOfPoints" classname="PointTests" time="0.0"/>
+  <testcase name="testDistance" classname="PointTests" time="0.0"/>
+  <testcase name="testDistanceIsPositiveValue" classname="PointTests" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
