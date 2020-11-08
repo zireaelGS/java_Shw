@@ -9,7 +9,7 @@ public class HelperBase {
     protected WebDriver wd;
 
     public HelperBase(WebDriver wd) {
-        this.wd=wd;
+        this.wd = wd;
     }
 
     protected void click(By locator) {
@@ -18,9 +18,15 @@ public class HelperBase {
 
     protected void type(By locator, String text) {
         click(locator);
-        wd.findElement(locator).clear();
-        wd.findElement(locator).sendKeys(text);
+        if (text != null) {
+            String existingText = wd.findElement(locator).getAttribute("value");
+            if (!text.equals(existingText)) {
+                wd.findElement(locator).clear();
+                wd.findElement(locator).sendKeys(text);
+            }
+        }
     }
+
     public boolean isElementPresent(By by) {
         try {
             wd.findElement(by);
