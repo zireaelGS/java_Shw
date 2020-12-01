@@ -22,10 +22,10 @@ public class GroupDeletionTest extends TestBase {
         app.getGroupHelper().returnToGroupPage();
         List<GroupData> after = app.getGroupHelper().getGroupList();
         Assert.assertEquals(after.size(), before.size() - 1);//check for compliance with quantity
-        app.getSessionHelper().logout();
 
         before.remove(element);//delete an extra element
         Assert.assertEquals(before, after);//check that we have deleted the group that we wanted
+        app.getSessionHelper().logout();
     }
 
 }
