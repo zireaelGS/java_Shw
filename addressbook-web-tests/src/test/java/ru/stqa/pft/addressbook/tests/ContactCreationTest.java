@@ -11,7 +11,7 @@ public class ContactCreationTest extends TestBase {
 
     @Test
     public void testContactCreation() throws Exception {
-        app.goTo().contactPage();
+        app.goTo().goToContactPage();
         Contacts before = app.contact().all();
         ContactData contact = new ContactData().withFirstname("Tom").withMiddlename("Marvolo").withLastname("Riddle")
                 .withNickname("Lord Voldemort").withTitle("LORD").withCompany("Death eaters").withAddress("The whole world")

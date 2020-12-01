@@ -18,6 +18,12 @@ public class ContactData {
     private String bmonth;
     private String byear;
 
+    public String getWork() {
+        return work;
+    }
+
+    private String work;
+
     public ContactData withId(int id) {
         this.id = id;
         return this;
@@ -85,6 +91,21 @@ public class ContactData {
 
     public ContactData withByear(String byear) {
         this.byear = byear;
+        return this;
+    }
+
+    public ContactData withHomePhone(String home) {
+        this.home = home;
+        return this;
+    }
+
+    public ContactData withMobilePhone(String mobile) {
+        this.mobile = mobile;
+        return this;
+    }
+
+    public ContactData withWorkPhone(String work) {
+        this.work = work;
         return this;
     }
 
