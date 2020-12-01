@@ -118,4 +118,8 @@ public class ContactHelper extends HelperBase {
         }
         return contactCache;
     }
+
+    public int count() {
+       return wd.findElements(By.xpath("//tr[@name='entry']")).size();
+    }
 }
