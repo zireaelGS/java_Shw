@@ -73,7 +73,7 @@ public class ContactHelper extends HelperBase {
         click(By.linkText("home page"));
     }
 
-    public void modifyContact(int index, ContactData contact) {
+    public void modify(int index, ContactData contact) {
         selectContact(index);
         initContactModification(index);
         fillContactForm(contact);
@@ -81,7 +81,13 @@ public class ContactHelper extends HelperBase {
         returnToContactPage();
     }
 
-    public void createContact(ContactData contact) {
+    public void delete(int index) {
+        selectContact(index);
+        deleteSelectedContact();
+        allertAccept();
+    }
+
+    public void create(ContactData contact) {
         initContactCreation();
         fillContactForm(contact);
         submitContactCreation();
@@ -92,7 +98,7 @@ public class ContactHelper extends HelperBase {
         return isElementPresent(By.name("selected[]"));
     }
 
-    public List<ContactData> getContactList() {
+    public List<ContactData> list() {
         List<ContactData> contacts = new ArrayList<>();
         List<WebElement> elements = wd.findElements(By.xpath("//tr[contains(@name ,'entry')]"));
         for (WebElement element : elements) {

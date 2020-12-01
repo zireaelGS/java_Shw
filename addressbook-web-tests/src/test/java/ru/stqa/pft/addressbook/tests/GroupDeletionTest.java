@@ -10,26 +10,25 @@ public class GroupDeletionTest extends TestBase {
 
     @BeforeMethod
     public void ensurePreconditions() {
-        app.getNavigationHelper().goToGroupPage();
-        if (!app.getGroupHelper().isThereAGroup()) {
-            app.getGroupHelper().createGroup(new GroupData("test1", null, "test3"));
+        app.goTo().groupPage();
+        if (app.group().list().size() == 0) {
+            app.group().create(new GroupData("test1", null, "test3"));
         }
     }
 
     @Test
     public void testGroupDeletion() throws Exception {
 
-        List<GroupData> before = app.getGroupHelper().getGroupList();
-        int element = before.size() - 1;// here you can choose which group you want to delete
-        app.getGroupHelper().selectGroup(element);
-        app.getGroupHelper().deleteSelectedGroups();
-        app.getGroupHelper().returnToGroupPage();
-        List<GroupData> after = app.getGroupHelper().getGroupList();
+        List<GroupData> before = app.group().list();
+        int index = before.size() - 1;// here you can choose which group you want to delete
+        app.group().delete(index);
+        List<GroupData> after = app.group().list();
         Assert.assertEquals(after.size(), before.size() - 1);//check for compliance with quantity
 
-        before.remove(element);//delete an extra element
+        before.remove(index);//delete an extra index
         Assert.assertEquals(before, after);//check that we have deleted the group that we wanted
 
     }
+
 
 }
