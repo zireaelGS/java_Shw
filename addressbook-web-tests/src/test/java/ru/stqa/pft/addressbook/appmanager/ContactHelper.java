@@ -31,7 +31,6 @@ public class ContactHelper extends HelperBase {
         type(By.name("home"), contactData.getHome());
         type(By.name("mobile"), contactData.getMobile());
         type(By.name("email"), contactData.getEmail());
-        //???
         wd.findElement(By.name("bday")).click();
         new Select(wd.findElement(By.name("bday"))).selectByVisibleText(contactData.getBday());
         wd.findElement(By.name("bday")).click();
@@ -41,7 +40,6 @@ public class ContactHelper extends HelperBase {
         wd.findElement(By.name("byear")).click();
         wd.findElement(By.name("byear")).clear();
         wd.findElement(By.name("byear")).sendKeys(contactData.getByear());
-
 
     }
 
@@ -105,7 +103,7 @@ public class ContactHelper extends HelperBase {
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("id"));//?
             String lastname = element.findElement(By.xpath("//td[2]")).getText();
             String firstname = element.findElements(By.tagName("td")).get(2).getText();
-            ContactData contact = new ContactData(id, firstname, null, lastname, null, null, null, null, null, null, null, null, null, null);
+            ContactData contact = new ContactData().withId(id).withFirstname(firstname).withLastname(lastname);
             contacts.add(contact);
         }
         return contacts;
