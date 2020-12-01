@@ -4,8 +4,13 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
+import ru.stqa.pft.addressbook.model.Contacts;
 
 import java.util.Set;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.testng.Assert.*;
 
 public class ContactModificationTest extends TestBase {
     @BeforeMethod
@@ -22,19 +27,16 @@ public class ContactModificationTest extends TestBase {
     @Test
     public void testContactModification() {
 
-        Set<ContactData> before = app.contact().all();
+        Contacts before = app.contact().all();
         ContactData modifiedContact = before.iterator().next();
         ContactData contact = new ContactData().withId(modifiedContact.getId()).withFirstname("Tomash").withMiddlename("Marvolo").withLastname("Riddle")
                 .withNickname("Lord Voldemort").withTitle("LORD").withCompany("Death eaters").withAddress("The whole world")
                 .withHome("666").withMobile("666999").withEmail("VolodyaKiller@mail.ru").withBday("13").withBmonth("April")
                 .withByear("1938");
         app.contact().modify(contact);
-        Set<ContactData> after = app.contact().all();
-        Assert.assertEquals(after.size(), before.size());//check for compliance with quantity
-
-        before.remove(modifiedContact);//delete an old contact from the collection
-        before.add(contact);//add a new contact to the collection==> update the collection with modificated contact
-        Assert.assertEquals(before, after);
+        Contacts after = app.contact().all();
+        assertEquals(after.size(), before.size());//check for compliance with quantity
+        assertThat(after, equalTo(before.without(modifiedContact).withAdded(contact)));
 
     }
 
