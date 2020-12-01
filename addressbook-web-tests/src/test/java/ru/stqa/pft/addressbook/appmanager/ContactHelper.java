@@ -50,7 +50,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public void selectContact(int index) {
-       wd.findElements(By.name("selected[]")).get(index).click();
+        wd.findElements(By.name("selected[]")).get(index).click();
     }
 
     public void deleteSelectedContact() {
@@ -73,6 +73,14 @@ public class ContactHelper extends HelperBase {
         click(By.linkText("home page"));
     }
 
+    public void modifyContact(int index, ContactData contact) {
+        selectContact(index);
+        initContactModification(index);
+        fillContactForm(contact);
+        submitContactModification();
+        returnToContactPage();
+    }
+
     public void createContact(ContactData contact) {
         initContactCreation();
         fillContactForm(contact);
@@ -91,7 +99,7 @@ public class ContactHelper extends HelperBase {
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("id"));//?
             String lastname = element.findElement(By.xpath("//td[2]")).getText();
             String firstname = element.findElements(By.tagName("td")).get(2).getText();
-            ContactData contact = new ContactData(id,firstname,null,lastname,null,null,null,null,null,null,null,null,null,null);
+            ContactData contact = new ContactData(id, firstname, null, lastname, null, null, null, null, null, null, null, null, null, null);
             contacts.add(contact);
         }
         return contacts;

@@ -1,30 +1,32 @@
 package ru.stqa.pft.addressbook.tests;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.*;
 
 public class GroupModificationTest extends TestBase {
-    @Test
-    public void testGroupModifiction() {
+
+    @BeforeMethod
+    public void ensurePreconditions(){
         app.getNavigationHelper().goToGroupPage();
         if (!app.getGroupHelper().isThereAGroup()) {
             app.getGroupHelper().createGroup(new GroupData("test1", null, "test3"));
         }
+    }
+    @Test
+    public void testGroupModifiction() {
+
         List<GroupData> before = app.getGroupHelper().getGroupList();
-        int element = before.size() - 1;// here you can choose which group you want to modificate
-        app.getGroupHelper().selectGroup(element);
-        app.getGroupHelper().initGroupModification();
-        GroupData group = new GroupData(before.get(element).getId(),"123", "testmod2", "testmod3");
-        app.getGroupHelper().fillGroupForm(group);
-        app.getGroupHelper().submitGroupModification();
-        app.getGroupHelper().returnToGroupPage();
+        int index = before.size() - 1;// here you can choose which group you want to modificate
+        GroupData group = new GroupData(before.get(index).getId(),"123", "testmod2", "testmod3");
+        app.getGroupHelper().modifyGroup(index, group);
         List<GroupData> after = app.getGroupHelper().getGroupList();
         Assert.assertEquals(before.size(), after.size());//check for compliance with quantity
 
-        before.remove(element);//delete an old group from the collection
+        before.remove(index);//delete an old group from the collection
         before.add(group);//add a new group to the collection==> update the collection with modificated group
         //sorting lists for further comparison
         Comparator<? super GroupData> byId=(g1,g2)->Integer.compare(g1.getId(),g2.getId());
@@ -32,4 +34,6 @@ public class GroupModificationTest extends TestBase {
         after.sort(byId);
         Assert.assertEquals(before, after);
     }
+
+
 }
