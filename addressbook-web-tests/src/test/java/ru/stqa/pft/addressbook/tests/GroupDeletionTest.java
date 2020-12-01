@@ -1,17 +1,18 @@
 package ru.stqa.pft.addressbook.tests;
 
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.GroupData;
 
-import java.util.List;
+import java.util.Set;
 
 public class GroupDeletionTest extends TestBase {
 
     @BeforeMethod
     public void ensurePreconditions() {
         app.goTo().groupPage();
-        if (app.group().list().size() == 0) {
+        if (app.group().all().size() == 0) {
             app.group().create(new GroupData().withName("test1"));
         }
     }
@@ -19,13 +20,13 @@ public class GroupDeletionTest extends TestBase {
     @Test
     public void testGroupDeletion() throws Exception {
 
-        List<GroupData> before = app.group().list();
-        int index = before.size() - 1;// here you can choose which group you want to delete
-        app.group().delete(index);
-        List<GroupData> after = app.group().list();
+        Set<GroupData> before = app.group().all();
+        GroupData deletedGroup = before.iterator().next();
+        app.group().delete(deletedGroup);
+        Set<GroupData> after = app.group().all();
         Assert.assertEquals(after.size(), before.size() - 1);//check for compliance with quantity
 
-        before.remove(index);//delete an extra index
+        before.remove(deletedGroup);//delete an extra group
         Assert.assertEquals(before, after);//check that we have deleted the group that we wanted
 
     }
