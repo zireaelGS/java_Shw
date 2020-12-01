@@ -17,12 +17,22 @@ public class ContactData {
     private String bday;
     private String bmonth;
     private String byear;
+    private String allPhones;
+
+    public String getAllPhones() {
+        return allPhones;
+    }
 
     public String getWork() {
         return work;
     }
 
     private String work;
+
+    public ContactData withAllPhones(String allPhones) {
+        this.allPhones = allPhones;
+        return this;
+    }
 
     public ContactData withId(int id) {
         this.id = id;
@@ -188,4 +198,6 @@ public class ContactData {
     public String getByear() {
         return byear;
     }
+
+
 }
