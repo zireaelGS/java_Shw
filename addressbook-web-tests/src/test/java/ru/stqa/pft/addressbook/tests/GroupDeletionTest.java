@@ -25,7 +25,7 @@ public class GroupDeletionTest extends TestBase {
 
         before.remove(element);//delete an extra element
         Assert.assertEquals(before, after);//check that we have deleted the group that we wanted
-        app.getSessionHelper().logout();
+
     }
 
 }

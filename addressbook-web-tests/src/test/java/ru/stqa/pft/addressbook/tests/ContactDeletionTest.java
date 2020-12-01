@@ -26,6 +26,5 @@ public class ContactDeletionTest extends TestBase {
         before.remove(element);//delete an extra element
         Assert.assertEquals(before,after);//check that we have deleted the contact that we wanted
 
-        app.getSessionHelper().logout();
     }
 }
