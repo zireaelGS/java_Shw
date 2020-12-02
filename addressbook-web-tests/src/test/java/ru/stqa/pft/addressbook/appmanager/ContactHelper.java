@@ -30,6 +30,7 @@ public class ContactHelper extends HelperBase {
         type(By.name("home"), contactData.getHome());
         type(By.name("mobile"), contactData.getMobile());
         type(By.name("email"), contactData.getEmail());
+        attach(By.name("photo"), contactData.getPhoto());
         wd.findElement(By.name("bday")).click();
         new Select(wd.findElement(By.name("bday"))).selectByVisibleText(contactData.getBday());
         wd.findElement(By.name("bday")).click();
