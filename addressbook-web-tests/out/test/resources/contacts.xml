@@ -1,0 +1,40 @@
+<list>
+  <ru.stqa.pft.addressbook.model.ContactData>
+    <id>2147483647</id>
+    <firstname>TomG 0</firstname>
+    <middlename>Marvolo 0</middlename>
+    <lastname>Riddle 0</lastname>
+    <nickname>Lord Voldemort 0</nickname>
+    <title>LORD 0</title>
+    <company>Death eaters 0</company>
+    <address>The whole world 0</address>
+    <home>666 0</home>
+    <mobile>666999 0</mobile>
+    <email>VolodyaKiller@mail.ru 0</email>
+    <email2>Vovan@mail.ru 0</email2>
+    <email3>Vovchik@mail.ru 0</email3>
+    <bday>12</bday>
+    <bmonth>April</bmonth>
+    <byear>1932</byear>
+    <photo>src\test\resources\tom.jpg</photo>
+  </ru.stqa.pft.addressbook.model.ContactData>
+  <ru.stqa.pft.addressbook.model.ContactData>
+    <id>2147483647</id>
+    <firstname>TomG 1</firstname>
+    <middlename>Marvolo 1</middlename>
+    <lastname>Riddle 1</lastname>
+    <nickname>Lord Voldemort 1</nickname>
+    <title>LORD 1</title>
+    <company>Death eaters 1</company>
+    <address>The whole world 1</address>
+    <home>666 1</home>
+    <mobile>666999 1</mobile>
+    <email>VolodyaKiller@mail.ru 1</email>
+    <email2>Vovan@mail.ru 1</email2>
+    <email3>Vovchik@mail.ru 1</email3>
+    <bday>12</bday>
+    <bmonth>April</bmonth>
+    <byear>1932</byear>
+    <photo>src\test\resources\tom.jpg</photo>
+  </ru.stqa.pft.addressbook.model.ContactData>
+</list>
