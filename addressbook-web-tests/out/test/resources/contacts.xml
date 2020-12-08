@@ -1,6 +1,5 @@
 <list>
-  <ru.stqa.pft.addressbook.model.ContactData>
-    <id>2147483647</id>
+  <contact>
     <firstname>TomG 0</firstname>
     <middlename>Marvolo 0</middlename>
     <lastname>Riddle 0</lastname>
@@ -17,9 +16,8 @@
     <bmonth>April</bmonth>
     <byear>1932</byear>
     <photo>src\test\resources\tom.jpg</photo>
-  </ru.stqa.pft.addressbook.model.ContactData>
-  <ru.stqa.pft.addressbook.model.ContactData>
-    <id>2147483647</id>
+  </contact>
+  <contact>
     <firstname>TomG 1</firstname>
     <middlename>Marvolo 1</middlename>
     <lastname>Riddle 1</lastname>
@@ -36,5 +34,5 @@
     <bmonth>April</bmonth>
     <byear>1932</byear>
     <photo>src\test\resources\tom.jpg</photo>
-  </ru.stqa.pft.addressbook.model.ContactData>
+  </contact>
 </list>
