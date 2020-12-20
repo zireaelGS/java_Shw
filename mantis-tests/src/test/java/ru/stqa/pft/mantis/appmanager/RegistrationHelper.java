@@ -22,6 +22,6 @@ public class RegistrationHelper extends HelperBase{
         wd.get(confirmationLink);
         type(By.name("password"),password);
         type(By.name("password_confirm"),password);
-        click(By.xpath("//input[@value='Зарегистрироваться']"));
+        click(By.xpath("//button[@type='submit']"));
     }
 }
