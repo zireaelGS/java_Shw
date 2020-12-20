@@ -1,7 +1,6 @@
 package ru.stqa.pft.mantis.appmanager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 public class RegistrationHelper extends HelperBase{
 
@@ -20,8 +19,8 @@ public class RegistrationHelper extends HelperBase{
 
     public void finish(String confirmationLink, String password) {
         wd.get(confirmationLink);
-        type(By.name("password"),password);
-        type(By.name("password_confirm"),password);
+        type(By.name("password"), password);
+        type(By.name("password_confirm"), password);
         click(By.xpath("//button[@type='submit']"));
     }
 }

@@ -16,7 +16,6 @@ public class RegistartionsTests extends TestBase {
     @BeforeMethod
     public void startMailServer() {
         app.mail().start();
-        ;
     }
 
     @Test
