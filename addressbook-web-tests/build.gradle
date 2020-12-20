@@ -12,6 +12,9 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'ch.qos.logback:logback-classic:1.2.3'
     implementation 'mysql:mysql-connector-java:8.0.22'
+    implementation 'org.hibernate:hibernate-core:5.1.0.Final'
+    implementation 'javax.xml.bind:jaxb-api:2.3.0'
+
 }
 task testGroups(type: Test) {
     useTestNG() {
