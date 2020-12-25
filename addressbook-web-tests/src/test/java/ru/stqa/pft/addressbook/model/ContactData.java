@@ -7,11 +7,13 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.File;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @XStreamAlias("contact")
 @Entity
-@Table(name= "addressbook")
+@Table(name = "addressbook")
 public class ContactData {
 
     @XStreamOmitField
@@ -35,8 +37,6 @@ public class ContactData {
     @Column(name = "nickname")
     private String nickname;
 
-    @Transient
-    private String group;
 
     @Expose
     @Column(name = "company")
@@ -110,12 +110,11 @@ public class ContactData {
     @Type(type = "text")
     private String photo;
 
+    @ManyToMany(fetch=FetchType.EAGER)
+    @JoinTable(name = "address_in_groups", joinColumns = @JoinColumn(name = "id")
+            , inverseJoinColumns = @JoinColumn(name = "group_id"))
+    private Set<GroupData> groups = new HashSet<GroupData>();
 
-
-    public ContactData withGroup(String group) {
-        this.group = group;
-        return this;
-    }
 
     public ContactData withPhoto(File photo) {
         this.photo = photo.getPath();
@@ -131,6 +130,7 @@ public class ContactData {
         this.allEmails = allEmails;
         return this;
     }
+
     public ContactData withId(int id) {
         this.id = id;
         return this;
@@ -166,6 +166,10 @@ public class ContactData {
         return this;
     }
 
+    public Groups getGroups() {
+        return new Groups(groups);
+    }
+
     public ContactData withAddress(String address) {
         this.address = address;
         return this;
@@ -190,10 +194,12 @@ public class ContactData {
         this.email2 = email2;
         return this;
     }
+
     public ContactData withEmail3(String email3) {
         this.email3 = email3;
         return this;
     }
+
     public ContactData withBday(String bday) {
         this.bday = bday;
         return this;
@@ -247,10 +253,6 @@ public class ContactData {
 
     public String getNickname() {
         return nickname;
-    }
-
-    public String getGroup() {
-        return group;
     }
 
     public String getTitle() {
