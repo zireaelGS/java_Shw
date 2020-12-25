@@ -20,6 +20,9 @@ dependencies {
     implementation "javax.activation:activation:1.1.1"
 
 }
+test{
+    useTestNG()
+}
 task testGroups(type: Test) {
     useTestNG() {
         suites 'src/test/resources/testng-groups.xml'

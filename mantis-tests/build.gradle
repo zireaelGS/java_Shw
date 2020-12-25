@@ -13,6 +13,9 @@ dependencies {
     implementation 'ru.lanwen.verbalregex:java-verbal-expressions:1.6'
     implementation 'biz.futureware.mantis:mantis-axis-soap-client:1.2.19'
 }
+test{
+    useTestNG()
+}
 task  {
     useTestNG() {
         suites 'src/test/resources/testng-groups.xml'

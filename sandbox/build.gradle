@@ -8,3 +8,6 @@ dependencies {
     implementation 'org.testng:testng:7.0.0'
     implementation 'junit:junit:4.12'
 }
+test{
+    useTestNG()
+}
